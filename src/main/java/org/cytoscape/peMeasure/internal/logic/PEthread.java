@@ -43,9 +43,11 @@ public class PEthread extends Thread {
         List<CyEdge> requiredEdges = currentnetwork.getEdgeList();
         CyTable eTable = currentnetwork.getDefaultEdgeTable();
         List<CyEdge> edgeList = currentnetwork.getEdgeList();
-        eTable.createColumn(COLUMN0 , Double.class, true);
-        eTable.createColumn(COLUMN1 , Double.class, true);
-        eTable.createColumn(COLUMN2 , Double.class, true);
+        if(eTable.getColumn(COLUMN0) == null){
+            eTable.createColumn(COLUMN0 , Double.class, true);
+            eTable.createColumn(COLUMN1 , Double.class, true);
+            eTable.createColumn(COLUMN2 , Double.class, true);
+        }
         CyRow row;
         for(CyEdge e : edgeList) {
             row = eTable.getRow(e.getSUID());
