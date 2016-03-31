@@ -64,8 +64,8 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         networkPanel = new javax.swing.JPanel();
         netVariable1 = new javax.swing.JLabel();
         networkComboBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        reliabLabel = new javax.swing.JLabel();
+        reliabValue = new javax.swing.JTextField();
         yesNoPanel = new javax.swing.JPanel();
         YESbutton = new javax.swing.JRadioButton();
         NObutton = new javax.swing.JRadioButton();
@@ -90,9 +90,9 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
 
         netVariable1.setText("Network");
 
-        jLabel1.setText("Reliability threshold");
+        reliabLabel.setText("Reliability threshold");
 
-        jTextField1.setText("0.1");
+        reliabValue.setText("0.1");
 
         javax.swing.GroupLayout networkPanelLayout = new javax.swing.GroupLayout(networkPanel);
         networkPanel.setLayout(networkPanelLayout);
@@ -102,11 +102,11 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                 .addGap(19, 19, 19)
                 .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(netVariable1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(reliabLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reliabValue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
         networkPanelLayout.setVerticalGroup(
@@ -118,8 +118,8 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                     .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reliabLabel)
+                    .addComponent(reliabValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -285,7 +285,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         PEthread logicThread;
         if(currentnetwork != null){
             currentnetworkview = CyActivator.getCyApplicationManager().getCurrentNetworkView();
-            logicThread = new PEthread(this, currentnetwork, currentnetworkview, YESbutton.isSelected());
+            logicThread = new PEthread(this, currentnetwork, currentnetworkview, textFieldValidate(reliabValue), YESbutton.isSelected());
             logicThread.start();
         } else{
             startB.setEnabled(false);
@@ -323,6 +323,21 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         statusLabel.setText(msg);
     }
     
+    public double textFieldValidate(javax.swing.JTextField jtf){
+        double reliabValue = 0.0;
+        try{
+            reliabValue = Double.parseDouble(jtf.getText());
+        } catch(NumberFormatException e){
+            System.out.println("Number format exception");
+        } catch(NullPointerException e){
+            System.out.println("String is null");
+        }
+        /*
+        if(size == 0.0)
+            size = 1.0;
+        */
+        return reliabValue;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton NObutton;
@@ -332,13 +347,13 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
     private javax.swing.JLabel headingLabel;
     private javax.swing.JButton helpB;
     private javax.swing.JPanel helpExitPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel netVariable1;
     protected javax.swing.JComboBox networkComboBox;
     private javax.swing.JPanel networkPanel;
+    private javax.swing.JLabel reliabLabel;
+    private javax.swing.JTextField reliabValue;
     private javax.swing.JButton startB;
     private javax.swing.JProgressBar statusBar;
     private javax.swing.JLabel statusLabel;

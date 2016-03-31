@@ -3,34 +3,44 @@ package org.cytoscape.peMeasure.internal.logic;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;
 import org.cytoscape.model.CyRow;
 import org.cytoscape.model.CyTable;
+import org.cytoscape.peMeasure.internal.CyActivator;
 import org.cytoscape.peMeasure.internal.PEgui;
+import org.cytoscape.task.create.NewNetworkSelectedNodesAndEdgesTaskFactory;
 import org.cytoscape.view.model.CyNetworkView;
+import org.cytoscape.work.TaskIterator;
 
 public class PEthread extends Thread {
     
     CyNetwork currentnetwork;
     CyNetworkView currentnetworkview;
     boolean YESb;
+    double reliabValue;
     PEgui gui;
     CyNetwork subNetwork = null;
     public static final String COLUMN0 = " k = 0 ";
     public static final String COLUMN1 = " k = 1 ";
     public static final String COLUMN2 = " k = 2 ";
     
-    public PEthread(PEgui gui, CyNetwork currentnetwork, CyNetworkView currentnetworkview, boolean YESb) {
+    public PEthread(PEgui gui, CyNetwork currentnetwork, CyNetworkView currentnetworkview, double reliabValue, boolean YESb) {
         this.gui = gui;
         this.currentnetwork = currentnetwork;
         this.currentnetworkview = currentnetworkview;
+        this.reliabValue = reliabValue;
         this.YESb = YESb;
     }
     
     public void run(){
         gui.startComputation();
+        List<CyNode> requiredNodes = currentnetwork.getNodeList();
+        List<CyEdge> requiredEdges = currentnetwork.getEdgeList();
         CyTable eTable = currentnetwork.getDefaultEdgeTable();
         List<CyEdge> edgeList = currentnetwork.getEdgeList();
         eTable.createColumn(COLUMN0 , Double.class, true);
@@ -85,10 +95,17 @@ public class PEthread extends Thread {
                 }
             }
             result = 1-result;
+            if(result == 0){
+                result = 0.01;
+            }
+            if(result < reliabValue){
+                requiredEdges.remove(e);
+            }
             row = eTable.getRow(e.getSUID());
             row.set(COLUMN2, result);
         }
-            
+        
+        createNetwork(requiredNodes, requiredEdges);
         gui.endComputation();
     }
     
@@ -105,6 +122,48 @@ public class PEthread extends Thread {
         }
        
         return reqMap; 
+    }
+    
+    public void createNetwork(List<CyNode> subnodeList, List<CyEdge> subedgeList){
+        // select the nodes and edges
+        CyTable eTable = currentnetwork.getDefaultEdgeTable();
+        List<CyEdge> elist = currentnetwork.getEdgeList();
+        for(CyEdge e : elist){
+            if(subedgeList.contains(e)){
+                CyRow row = eTable.getRow(e.getSUID());
+                row.set("selected", true);
+            }
+            else{
+                CyRow row = eTable.getRow(e.getSUID());
+                row.set("selected", false);
+            }
+        }
+        
+        // create the network
+        if(YESb == true){
+            NewNetworkSelectedNodesAndEdgesTaskFactory f = CyActivator.getCySwingAppAdapter().
+                get_NewNetworkSelectedNodesAndEdgesTaskFactory();
+            TaskIterator itr = f.createTaskIterator(currentnetwork);
+            CyActivator.getCySwingAppAdapter().getTaskManager().execute(itr);
+            
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(PEthread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            // set the name of the network
+            this.gui.calculatingresult("Created! Renaming the network...");
+            String currentNetworkName = currentnetwork.getRow(currentnetwork).get(CyNetwork.NAME, String.class);
+            Set<CyNetwork> allnetworks = CyActivator.getCyNetworkManager().getNetworkSet();
+            long maxSUID = Integer.MIN_VALUE;
+            for(CyNetwork net : allnetworks){
+                if(net.getSUID() > maxSUID)
+                    maxSUID = net.getSUID();
+            }
+            this.subNetwork = CyActivator.getCyNetworkManager().getNetwork(maxSUID);
+            subNetwork.getRow(subNetwork).set(CyNetwork.NAME, currentNetworkName + " PE-measure " + reliabValue);         
+        }
+        
     }
     
 }

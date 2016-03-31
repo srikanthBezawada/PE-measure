@@ -75,5 +75,7 @@ public class CyActivator extends AbstractCyActivator {
         return networkManager; 
     }
             
-    
+    public static CySwingAppAdapter getCySwingAppAdapter() {
+        return adapter;
+    }
 }

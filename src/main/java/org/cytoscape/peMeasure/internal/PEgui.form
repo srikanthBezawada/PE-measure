@@ -122,12 +122,12 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="netVariable1" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="reliabLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="networkComboBox" min="-2" pref="132" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="reliabValue" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
@@ -143,8 +143,8 @@
                           </Group>
                           <EmptySpace pref="37" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="reliabLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="reliabValue" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -162,12 +162,12 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="reliabLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Reliability threshold"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="reliabValue">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="0.1"/>
                   </Properties>
