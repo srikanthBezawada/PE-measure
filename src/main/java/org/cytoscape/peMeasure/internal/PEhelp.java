@@ -54,24 +54,31 @@ public class PEhelp extends javax.swing.JFrame {
     public void setText(int buttonNumber) {
       
         helpString =
-                " Biggest Maximal Clique: \n\n"
+                "PE Measure: \n\n"
                 + "----\n"
+                + "About : \n\n"
                 + " PPI(Protein Proetein Interaction) data obtained from   \n"
                 + " high-throughput experimental techniques is usually liable \n"
-                + " to contain a large number of spurious interactions \n"
+                + " to contain a large number of spurious interactions. \n"
                 + "\n"
-                + " The aim of this app is to  validate the interactions"
-                + "before exploiting them for further analysis"
+                + " The aim of this app is to  validate the interactions \n"
+                + " before exploiting them for further analysis. \n"
                 + "\n"
-                + "Tutorial :"
-                + "Click on Apps menu \n"
-                + "Click on ~PE Measure - 1.0~ which opens a tabbed panel in control panel \n"
-                + "Select the network to be used and input reliability threshold \n"
-                + "Select if you would like to have subnetwork filtered, extracted out"
-                + "Click on the Run button \n"
-                + "----\n"
-                + "Find the new subnetwork created programmatically \n"
-                + "and the corresponding edges highlighted in the input network \n\n" ;
+                + "Tutorial : \n"
+                + " - Click on Apps menu \n"
+                + " - Click on PE Measure - 1.0 which opens \n"
+                + "   a tabbed panel in control panel \n"
+                + " - Select the network to be used \n"
+                + "   and input reliability threshold \n"
+                + " - Select if you would like to have subnetwork \n"
+                + "   filtered, extracted out \n"
+                + " - Click on the Run button \n\n"
+               
+                + "Results : \n"
+                + " - Find the results of algorithm in edge table \n"
+                + " - Find the new subnetwork created programmatically \n"
+                + " and the corresponding edges highlighted in the input network \n\n" 
+                + "----\n";
         
                 
 
