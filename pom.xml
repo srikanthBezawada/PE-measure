@@ -8,10 +8,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cytoscape</groupId>
-	<artifactId>peMeasure</artifactId>
+	<artifactId>PEmeasure</artifactId>
 	<version>1.0</version>
 
-			<name>peMeasure</name>
+			<name>PEmeasure</name>
 	
 	<packaging>bundle</packaging>
 
