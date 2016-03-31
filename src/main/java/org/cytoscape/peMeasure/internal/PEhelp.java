@@ -60,18 +60,18 @@ public class PEhelp extends javax.swing.JFrame {
                 + " high-throughput experimental techniques is usually liable \n"
                 + " to contain a large number of spurious interactions \n"
                 + "\n"
-                + " The aim of this app is to  validate the interactions before exploiting them "
-                + "for further analysis"
+                + " The aim of this app is to  validate the interactions"
+                + "before exploiting them for further analysis"
                 + "\n"
                 + "Tutorial :"
                 + "Click on Apps menu \n"
                 + "Click on ~PE Measure - 1.0~ which opens a tabbed panel in control panel \n"
-                + "Select the network to be used \n"
+                + "Select the network to be used and input reliability threshold \n"
                 + "Select if you would like to have subnetwork filtered, extracted out"
-                + "Click on the Find button \n"
+                + "Click on the Run button \n"
                 + "----\n"
                 + "Find the new subnetwork created programmatically \n"
-                + "and the corresponding changes highlighted in the input network \n\n" ;
+                + "and the corresponding edges highlighted in the input network \n\n" ;
         
                 
 
