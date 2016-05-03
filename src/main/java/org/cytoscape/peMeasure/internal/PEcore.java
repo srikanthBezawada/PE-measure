@@ -21,7 +21,7 @@ public class PEcore {
         return gui;
     }
     
-    public void closeCliqueStartMenu(PEgui gui) {
+    public void closeStartMenu() {
         CyActivator.getCyServiceRegistrar().unregisterService(gui, CytoPanelComponent.class);
     }
     

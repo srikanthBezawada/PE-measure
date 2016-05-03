@@ -303,7 +303,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
 
     private void exitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBActionPerformed
         // TODO add your handling code here:
-        pecore.closeCliqueStartMenu(this);
+        pecore.closeStartMenu();
     }//GEN-LAST:event_exitBActionPerformed
     
     public void startComputation(){
