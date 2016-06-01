@@ -78,6 +78,7 @@ public class PEhelp extends javax.swing.JFrame {
                 + " - Find the results of algorithm in edge table \n"
                 + " - Find the new subnetwork created programmatically \n"
                 + " and the corresponding edges highlighted in the input network \n\n" 
+                + " Now you can use filtered network for predicting complexes"
                 + "----\n";
         
                 
