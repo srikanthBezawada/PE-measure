@@ -178,7 +178,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Extract new network with valid interactions, default=NO"/>
+                    <TitledBorder title="Extract new network with valid interactions"/>
                   </Border>
                 </Property>
               </Properties>
@@ -211,6 +211,7 @@
               <SubComponents>
                 <Component class="javax.swing.JRadioButton" name="YESbutton">
                   <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="YES"/>
                   </Properties>
                   <AuxValues>

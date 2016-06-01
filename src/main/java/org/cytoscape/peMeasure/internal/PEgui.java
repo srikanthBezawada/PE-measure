@@ -123,9 +123,10 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                 .addContainerGap())
         );
 
-        yesNoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Extract new network with valid interactions, default=NO"));
+        yesNoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Extract new network with valid interactions"));
 
         buttonGroup1.add(YESbutton);
+        YESbutton.setSelected(true);
         YESbutton.setText("YES");
 
         buttonGroup1.add(NObutton);
