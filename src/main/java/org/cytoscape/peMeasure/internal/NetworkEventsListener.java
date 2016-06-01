@@ -9,6 +9,11 @@ import org.cytoscape.model.events.NetworkAddedListener;
 import org.cytoscape.model.events.NetworkDestroyedEvent;
 import org.cytoscape.model.events.NetworkDestroyedListener;
 
+/**
+ * @author SrikanthB
+ *  This class takes care of updating network combo box of GUI
+ */
+
 public class NetworkEventsListener implements NetworkAddedListener, NetworkDestroyedListener {
 
     public void handleEvent(NetworkAddedEvent e){

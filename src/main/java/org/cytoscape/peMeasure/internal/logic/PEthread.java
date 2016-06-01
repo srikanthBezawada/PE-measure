@@ -17,6 +17,11 @@ import org.cytoscape.task.create.NewNetworkSelectedNodesAndEdgesTaskFactory;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.work.TaskIterator;
 
+/**
+ * @author SrikanthB
+ * This class has the algorithm implemented
+ */
+
 public class PEthread extends Thread {
     
     CyNetwork currentnetwork;

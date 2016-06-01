@@ -7,7 +7,7 @@ import org.cytoscape.application.swing.CySwingApplication;
 
 /**
  * @author SrikanthB
- *
+ * This class creates a new option for the app to load in Apps menu
  */
 
 public class MenuAction extends AbstractCyAction {

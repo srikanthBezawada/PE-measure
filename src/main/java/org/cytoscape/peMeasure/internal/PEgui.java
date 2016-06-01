@@ -16,7 +16,7 @@ import org.cytoscape.view.model.CyNetworkView;
 
 /**
  * @author SrikanthB
- *
+ * GUI of the app, Control goes to logic from here
  */
 public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
 

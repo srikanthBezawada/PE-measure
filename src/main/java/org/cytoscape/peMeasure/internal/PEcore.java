@@ -5,6 +5,11 @@ import org.cytoscape.application.swing.CytoPanel;
 import org.cytoscape.application.swing.CytoPanelComponent;
 import org.cytoscape.application.swing.CytoPanelName;
 
+/**
+ * @author SrikanthB
+ *
+ */
+
 public class PEcore {
     
     private static PEgui gui;

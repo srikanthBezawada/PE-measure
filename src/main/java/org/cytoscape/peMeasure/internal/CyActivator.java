@@ -19,7 +19,7 @@ import org.osgi.framework.BundleContext;
 
 /**
  * @author SrikanthB
- *
+ *  This class is the entry point to Cytoscape app
  */
 
 public class CyActivator extends AbstractCyActivator {
