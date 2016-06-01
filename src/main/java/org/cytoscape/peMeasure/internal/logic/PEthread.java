@@ -39,6 +39,7 @@ public class PEthread extends Thread {
     
     public void run(){
         gui.startComputation();
+        long startTime = System.currentTimeMillis();
         List<CyNode> requiredNodes = currentnetwork.getNodeList();
         List<CyEdge> requiredEdges = currentnetwork.getEdgeList();
         CyTable eTable = currentnetwork.getDefaultEdgeTable();
@@ -108,6 +109,9 @@ public class PEthread extends Thread {
         }
         
         createNetwork(requiredNodes, requiredEdges);
+        long endTime = System.currentTimeMillis();
+        long difference = endTime - startTime;
+        System.out.println("Execution time for PE-measure algo: " + difference +" milli seconds");
         gui.endComputation();
     }
     
