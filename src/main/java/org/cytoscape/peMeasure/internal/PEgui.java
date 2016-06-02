@@ -93,6 +93,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         reliabLabel.setText("Reliability threshold");
 
         reliabValue.setText("0.1");
+        reliabValue.setToolTipText("Interactions below the threshold will be removed");
 
         javax.swing.GroupLayout networkPanelLayout = new javax.swing.GroupLayout(networkPanel);
         networkPanel.setLayout(networkPanelLayout);
@@ -154,7 +155,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        startB.setText("Run PE-measure on selected network");
+        startB.setText("Run PE-Measure on Selected Network");
         startB.setToolTipText("");
         startB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         startB.addActionListener(new java.awt.event.ActionListener() {
@@ -317,7 +318,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
     
     public void endComputation(){
         statusBar.setIndeterminate(false);
-        statusLabel.setText("<html> Have fun validating experimental interactions ! <br> You might want to recompute with different inputs <html>");
+        statusLabel.setText("<html> Completed validating the current network ! <br> You might want to recompute with different inputs <html>");
         startB.setEnabled(true);
     }
     
