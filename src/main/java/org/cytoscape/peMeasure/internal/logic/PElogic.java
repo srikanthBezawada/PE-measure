@@ -22,7 +22,7 @@ import org.cytoscape.work.TaskIterator;
  * This class has the algorithm implemented
  */
 
-public class PElogic {
+public class PElogic extends Thread {
     
     CyNetwork currentnetwork;
     CyNetworkView currentnetworkview;

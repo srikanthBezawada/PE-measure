@@ -289,7 +289,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         if(currentnetwork != null){
             currentnetworkview = CyActivator.getCyApplicationManager().getCurrentNetworkView();
             logicThread = new PElogic(this, currentnetwork, currentnetworkview, textFieldValidate(reliabValue), YESbutton.isSelected());
-            logicThread.run();
+            logicThread.start();
         } else{
             startB.setEnabled(false);
             JOptionPane.showMessageDialog(null, "IMPORT a network first! ", "No Network found ", JOptionPane.WARNING_MESSAGE);
