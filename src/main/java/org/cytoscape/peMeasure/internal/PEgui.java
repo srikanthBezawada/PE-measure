@@ -10,7 +10,7 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import org.cytoscape.application.swing.CytoPanelComponent;
 import org.cytoscape.application.swing.CytoPanelName;
-import org.cytoscape.peMeasure.internal.logic.PEthread;
+import org.cytoscape.peMeasure.internal.logic.PElogic;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.view.model.CyNetworkView;
 
@@ -285,11 +285,11 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
     private void startBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBActionPerformed
         CyNetwork currentnetwork = getSelectedNetwork();
         CyNetworkView currentnetworkview;
-        PEthread logicThread;
+        PElogic logicThread;
         if(currentnetwork != null){
             currentnetworkview = CyActivator.getCyApplicationManager().getCurrentNetworkView();
-            logicThread = new PEthread(this, currentnetwork, currentnetworkview, textFieldValidate(reliabValue), YESbutton.isSelected());
-            logicThread.start();
+            logicThread = new PElogic(this, currentnetwork, currentnetworkview, textFieldValidate(reliabValue), YESbutton.isSelected());
+            logicThread.run();
         } else{
             startB.setEnabled(false);
             JOptionPane.showMessageDialog(null, "IMPORT a network first! ", "No Network found ", JOptionPane.WARNING_MESSAGE);

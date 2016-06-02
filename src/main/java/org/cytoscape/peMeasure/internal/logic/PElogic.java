@@ -22,7 +22,7 @@ import org.cytoscape.work.TaskIterator;
  * This class has the algorithm implemented
  */
 
-public class PEthread extends Thread {
+public class PElogic {
     
     CyNetwork currentnetwork;
     CyNetworkView currentnetworkview;
@@ -34,7 +34,7 @@ public class PEthread extends Thread {
     public static final String COLUMN1 = " k = 1 ";
     public static final String COLUMN2 = " k = 2 ";
     
-    public PEthread(PEgui gui, CyNetwork currentnetwork, CyNetworkView currentnetworkview, double reliabValue, boolean YESb) {
+    public PElogic(PEgui gui, CyNetwork currentnetwork, CyNetworkView currentnetworkview, double reliabValue, boolean YESb) {
         this.gui = gui;
         this.currentnetwork = currentnetwork;
         this.currentnetworkview = currentnetworkview;
@@ -160,7 +160,7 @@ public class PEthread extends Thread {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(PEthread.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PElogic.class.getName()).log(Level.SEVERE, null, ex);
             }
             // set the name of the network
             this.gui.calculatingresult("Created! Renaming the network...");
