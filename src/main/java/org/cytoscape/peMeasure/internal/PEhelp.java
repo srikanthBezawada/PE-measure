@@ -84,6 +84,7 @@ public class PEhelp extends javax.swing.JFrame {
                 + " - Find the new subnetwork created programmatically \n"
                 + " and the corresponding edges highlighted in the input network \n\n" 
                 + " Now you can use filtered network for predicting complexes"
+                + " You can export the network using File -> Export -> Edgetable  feature"
                 + "----\n";
         
                 
