@@ -306,7 +306,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
 
     private void exitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBActionPerformed
         // TODO add your handling code here:
-        pecore.closeStartMenu();
+        pecore.closeStartMenu(this);
     }//GEN-LAST:event_exitBActionPerformed
     
     public void startComputation(){
@@ -330,6 +330,9 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         double reliabValue = 0.0;
         try{
             reliabValue = Double.parseDouble(jtf.getText());
+            if (reliabValue > 1 || reliabValue < 0) {
+                JOptionPane.showMessageDialog(null, "reliability valude should be between 0 and 1 ", "Not a valid threshold ", JOptionPane.WARNING_MESSAGE);
+            }
         } catch(NumberFormatException e){
             System.out.println("Number format exception");
         } catch(NullPointerException e){
