@@ -73,8 +73,6 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         statusPanel = new javax.swing.JPanel();
         statusBar = new javax.swing.JProgressBar();
         statusLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         helpB = new javax.swing.JButton();
         exitB = new javax.swing.JButton();
 
@@ -94,7 +92,7 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
         reliabLabel.setText("Reliability threshold");
 
         reliabValue.setText("0.1");
-        reliabValue.setToolTipText("");
+        reliabValue.setToolTipText("Interactions with reliability  < threshold will be removed");
 
         yesNoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Extract new network with valid interactions"));
 
@@ -161,17 +159,6 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 8)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Interactions with reliability \n< threshold will be removed");
-        jScrollPane2.setViewportView(jTextArea1);
-
         helpB.setForeground(new java.awt.Color(0, 200, 0));
         helpB.setText("Help");
         helpB.addActionListener(new java.awt.event.ActionListener() {
@@ -200,12 +187,9 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                             .addComponent(reliabLabel)
                             .addComponent(netVariable1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(networkPanelLayout.createSequentialGroup()
-                                .addComponent(reliabValue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(networkComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reliabValue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(startB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(yesNoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(networkPanelLayout.createSequentialGroup()
@@ -226,7 +210,6 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
                     .addComponent(networkComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(networkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(reliabValue, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(reliabLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -357,8 +340,6 @@ public class PEgui extends javax.swing.JPanel implements CytoPanelComponent {
     private javax.swing.JLabel headingLabel;
     private javax.swing.JButton helpB;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel netVariable1;
     protected javax.swing.JComboBox networkComboBox;
